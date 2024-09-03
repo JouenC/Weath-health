@@ -1,6 +1,6 @@
-// import React, { useEffect } from "react";
-// import { getTags, getNestedTags, setAttributes } from "../../utils/handler";
-// import Table from "../../components/Table/Table";
+// import { useEffect } from "react";
+// import { getTags, getNestedTags, setAttributes } from "../utils/Handler";
+import Table from "../components/Table";
 
 
 /**
@@ -34,7 +34,7 @@
             <h2 tabIndex="0" id="page-title">
                Current Employees 
             </h2>
-            {/* <Table /> */}
+            <Table />
         </main>
     );
 };

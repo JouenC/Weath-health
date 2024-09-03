@@ -7,7 +7,9 @@ export const InitializeHome = () => {
 
     // FILLING THE ADDRESS BLOCK WITH THE ADDRESS ITEMS
     getElements("address").forEach((item) => {
+        console.log(item)
         const addressContainer = getElement("addressContainer");
+        // console.log(addressContainer)
         if (addressContainer) {
             const heading = document.createElement('h3');
             heading.textContent = 'Address';
