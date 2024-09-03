@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getElement, getElements, setAttributes } from "./Handler";
 
-export const Dropdown = () => {
+export const InitializeHome = () => {
 
     useEffect(() => {
 
