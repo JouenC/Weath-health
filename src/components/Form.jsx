@@ -15,30 +15,30 @@ import Modal from "react-modal";
  */
 export default function Form() {
 
-    const initialState = {
-        firstName: "",
-        lastName: "",
-        dateOfBirth: "",
-        street: "",
-        city: "",
-        zipCode: "",
-        stateAbbrev: "",
-        startDate: "",
-        department: "",
-      };
+  const initialState = {
+      firstName: "",
+      lastName: "",
+      dateOfBirth: "",
+      street: "",
+      city: "",
+      zipCode: "",
+      stateAbbrev: "",
+      startDate: "",
+      department: "",
+  };
 
-    const [newEmployee, setNewEmployee] = useState(initialState);
+  const [newEmployee, setNewEmployee] = useState(initialState);
 
-    const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-// MODAL
-function openModal() {
+  // MODAL
+  function openModal() {
     setIsOpen(true);
-}
+  }
 
-function closeModal() {
+  function closeModal() {
     setIsOpen(false);
-}
+  }
 
     // const customStyles = {
     // content: {
@@ -87,15 +87,32 @@ function closeModal() {
     openModal();
   };
 
-    return (
-        <form action="" className="form-newEmployee" onSubmit={handleSubmit}>
-        <img
-          className="form-newEmployee--ico"
-          src={icoAdd}
-          alt="add employee icon"
+  return (
+    <form action="" className="form-newEmployee" onSubmit={handleSubmit}>
+      
+      <img className="form-newEmployee--ico" src={icoAdd} alt="add employee icon"/>
+
+      {/* Rendering inputs that don't have the 'adresse' class */}
+      {INPUT_DATA.filter((data) => !data.className.includes("address")).map((data, index) => (
+        <Input
+          key={index}
+          type={data.type}
+          className={data.className}
+          htmlFor={data.id}
+          label={data.label}
+          id={data.id}
+          value={newEmployee[index]}
+          handleChange={handleChange}
+          autoComplete="off"
         />
-  
-        {INPUT_DATA.map((data, index) => (
+      ))}
+
+      <fieldset
+      id="addressContainer"
+      className="form-newEmployee--addressContainer">
+      <legend className="form-newEmployee--addressGroup">Address</legend>
+      
+        {INPUT_DATA.filter((data) => data.className.includes("address")).map((data, index) => (
           <Input
             key={index}
             type={data.type}
@@ -106,49 +123,39 @@ function closeModal() {
             value={newEmployee[index]}
             handleChange={handleChange}
             autoComplete="off"
-          />  
-        ))}
-  
-        <fieldset
-          id="addressContainer"
-          className="form-newEmployee--addressContainer"
-        >
-          <legend className="form-newEmployee--addressGroup">Address</legend>
-        </fieldset>
-  
-        {DROPDOWN_DATA.map((data, index) => (
-          <Dropdown
-            key={index}
-            type={data.type}
-            className={data.className}
-            htmlFor={data.id}
-            label={data.label}
-            id={data.id}
-            select={data.select}
-            handleChange={handleChange}
           />
         ))}
-  
-        <button
-          type="submit"
-          className="submit form-newEmployee--submit"
-        >
-          Save
-        </button>
+      </fieldset>
 
-        <Modal
+      
+      {DROPDOWN_DATA.map((data, index) => (
+        <Dropdown
+          key={index}
+          type={data.type}
+          className={data.className}
+          htmlFor={data.id}
+          label={data.label}
+          id={data.id}
+          select={data.select}
+          handleChange={handleChange}
+        />
+      ))}
+      
+      <button type="submit" className="submit form-newEmployee--submit"> Save </button>
+
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         // style={customStyles}
         ariaHideApp={false}
-        >
-        <button onClick={closeModal}>
-            <img src={close} className="modal-close" alt="close modal" />
-        </button>
-        <div className="modal-text">Employee Created</div><br/>
-        <span className="span-icon">👍</span>
-        </Modal>
+      >
+      <button onClick={closeModal}>
+      <img src={close} className="modal-close" alt="close modal" />
+      </button>
+      <div className="modal-text">Employee Created</div><br/>
+      <span className="span-icon">👍</span>
+      </Modal>
 
-      </form>
-    );
+    </form>
+  );
 };
