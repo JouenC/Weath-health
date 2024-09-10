@@ -4,6 +4,9 @@ import Home from "./pages/Home"
 import Employee from "./pages/Employee";
 import Error from "./pages/Error";
 
+// style
+import './css/main.css'
+
 function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>

@@ -22,8 +22,8 @@ const Navbar = () => {
           />
         </div>
         <div className="nav-item nav-menu">
-          <h1 tabIndex="0" id="nav-title" className="nav-menu--title">HRnet Employees</h1>
-          <NavLink to="/employees" className="nav-menu--choice">
+          <h1 tabIndex="0" id="nav-title" className="nav-menu__title">HRnet Employees</h1>
+          <NavLink to="/employees" className="nav-menu__choice">
             <img
               className="nav-ico"
               src={icoList}
@@ -31,7 +31,7 @@ const Navbar = () => {
             />
             <span>Current</span>
           </NavLink>
-          <NavLink to="/" className="nav-menu--choice">
+          <NavLink to="/" className="nav-menu__choice">
             <img
               className="nav-ico"
               src={icoAdd}

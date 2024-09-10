@@ -1,0 +1,183 @@
+body {
+  background: $backgroud;
+  margin-top: 0;
+  font-family: 'Open Sans', sans-serif;
+  // color: $dark;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $backgroud;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $secondary !important;
+}
+
+/* TITLES */
+h1,
+h2,
+h3 {
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+  color: $secondary;
+
+  & :focus {
+    outline: none;
+    box-shadow: 0 0 0 1.5px $secondary;
+  }
+}
+
+h2 {
+  color: $primary;
+  border-radius: 0.25rem;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+  color: $dark;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+select {
+  outline: none;
+}
+
+h2:focus,
+div:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px $primary;
+}
+
+h3:focus,
+input:focus,
+select:focus,
+button:focus,
+td:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px $tertiary-constrast;
+  border-radius: 0.25rem;
+}
+
+span:focus {
+  outline: none;
+  box-shadow: 0 0 0 1.5px $primary;
+}
+
+th:focus {
+  outline: 3px solid $dark;
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 1260px) {
+  .table-main--sorter {
+    padding-left: 0;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  /* TABLE PAGE */
+  .table {
+    width: 100%;
+  }
+
+  /* TABLE MAIN */
+  .table-main {
+    border-radius: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  /* corners */
+  .table-main--list thead :first-child :first-child {
+    border-top-left-radius: 0;
+  }
+
+  .table-main--list thead :first-child :last-child {
+    border-top-right-radius: 0;
+  }
+
+  .table-main--list tbody :last-child :first-child {
+    border-bottom-left-radius: 0;
+  }
+
+  .table-main--list tbody :last-child :last-child {
+    border-bottom-right-radius: 0;
+  }
+
+  /* table */
+  .table-main--list {
+    width: 100%;
+    border-radius: 0;
+    border-collapse: separate;
+    background-color: transparent;
+    font-size: small;
+  }
+
+  /* horizontal scrollbar */
+  .table-main::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .table-main::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .table-main::-webkit-scrollbar-thumb {
+    background-color: $tertiary !important;
+  }
+
+  /* TABLE FOOTER */
+  .table-footer {
+    width: 90%;
+    margin: 0 auto 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* TABLE */
+  .table-header {
+    flex-direction: column;
+    height: 125px;
+  }
+
+  .table-footer {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* FORM */
+  .form-newEmployee--addressContainer select {
+    font-size: small;
+  }
+
+  .form-newEmployee--inputWrapper select option,
+  .form-newEmployee--addressContainer option {
+    font-size: x-small;
+  }
+
+  /* TABLE */
+  .table-footer--nav {
+    display: flex;
+  }
+}

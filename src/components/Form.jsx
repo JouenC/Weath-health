@@ -31,6 +31,27 @@ export default function Form() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  // Render all component and filter data
+  const renderComponents = (data, Component, filterCondition) =>
+    data.filter(filterCondition).map((item, index) => (
+      <Component
+        key={index}
+        type={item.type}
+        className={item.className}
+        htmlFor={item.id}
+        label={item.label}
+        id={item.id}
+        value={item.value}
+        select={item.select}
+        handleChange={handleChange}
+        autoComplete="off"
+      />
+    ));
+
+  // For filter
+  const isAddressClass = (data) => data.className.includes("address");
+  const isNotAddressClass = (data) => !data.className.includes("address");
+
   // MODAL
   function openModal() {
     setIsOpen(true);
@@ -40,22 +61,21 @@ export default function Form() {
     setIsOpen(false);
   }
 
-    // const customStyles = {
-    // content: {
-    //     top: "50%",
-    //     left: "50%",
-    //     right: "auto",
-    //     bottom: "auto",
-    //     width: "400px",
-    //     height: "300px",
-    //     background: "#f2f2f2",
-    //     marginRight: "-50%",
-    //     border: "none",
-    //     transform: "translate(-50%, -50%)",
-    //     boxShadow: "0 0 0 1.5px var(--dark)",
-    // }};  
-     
-    
+  const customStyles = {
+  content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      width: "400px",
+      height: "300px",
+      background: "#f2f2f2",
+      marginRight: "-50%",
+      border: "none",
+      transform: "translate(-50%, -50%)",
+      boxShadow: "0 0 0 1.5px $dark",
+  }};  
+      
   // ON CHANGE
   const handleChange = (e) => {
     setNewEmployee({ ...newEmployee, [e.target.id]: e.target.value.trim() });
@@ -92,68 +112,32 @@ export default function Form() {
       
       <img className="form-newEmployee--ico" src={icoAdd} alt="add employee icon"/>
 
-      {/* Rendering inputs that don't have the 'adresse' class */}
-      {INPUT_DATA.filter((data) => !data.className.includes("address")).map((data, index) => (
-        <Input
-          key={index}
-          type={data.type}
-          className={data.className}
-          htmlFor={data.id}
-          label={data.label}
-          id={data.id}
-          value={newEmployee[index]}
-          handleChange={handleChange}
-          autoComplete="off"
-        />
-      ))}
+      {/* Inputs and Dropdowns without the 'address' class */}
+      {renderComponents(INPUT_DATA, Input, isNotAddressClass)}
+      {renderComponents(DROPDOWN_DATA, Dropdown, isNotAddressClass)}
 
-      <fieldset
-      id="addressContainer"
-      className="form-newEmployee--addressContainer">
-      <legend className="form-newEmployee--addressGroup">Address</legend>
-      
-        {INPUT_DATA.filter((data) => data.className.includes("address")).map((data, index) => (
-          <Input
-            key={index}
-            type={data.type}
-            className={data.className}
-            htmlFor={data.id}
-            label={data.label}
-            id={data.id}
-            value={newEmployee[index]}
-            handleChange={handleChange}
-            autoComplete="off"
-          />
-        ))}
+      {/* Address fieldset */}
+      <fieldset id="addressContainer" className="form-newEmployee--addressContainer">
+        <legend className="form-newEmployee--addressGroup">Address</legend>
+        {renderComponents(INPUT_DATA, Input, isAddressClass)}
+        {renderComponents(DROPDOWN_DATA, Dropdown, isAddressClass)}
       </fieldset>
-
-      
-      {DROPDOWN_DATA.map((data, index) => (
-        <Dropdown
-          key={index}
-          type={data.type}
-          className={data.className}
-          htmlFor={data.id}
-          label={data.label}
-          id={data.id}
-          select={data.select}
-          handleChange={handleChange}
-        />
-      ))}
       
       <button type="submit" className="submit form-newEmployee--submit"> Save </button>
 
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        // style={customStyles}
+        style={customStyles}
         ariaHideApp={false}
+        shouldCloseOnOverlayClick={true}
+        shouldCloseOnEsc={true}
       >
-      <button onClick={closeModal}>
-      <img src={close} className="modal-close" alt="close modal" />
-      </button>
-      <div className="modal-text">Employee Created</div><br/>
-      <span className="span-icon">👍</span>
+        <button onClick={closeModal} className="modal-close">
+          <img src={close} className="modal-icon" alt="close modal" />
+        </button>
+        <div className="modal-text">Employee Created</div><br/>
+        <span className="span-icon">👍</span>
       </Modal>
 
     </form>

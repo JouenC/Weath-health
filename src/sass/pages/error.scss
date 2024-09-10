@@ -1,0 +1,13 @@
+.error {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+
+    &__number {
+        color: $error;
+        font-size: 150px;
+    }
+}
