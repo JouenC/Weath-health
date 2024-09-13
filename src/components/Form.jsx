@@ -8,24 +8,23 @@ import Input from "../components/Input";
 import Dropdown from "../components/Dropdown";
 import Modal from "react-modal";
 
+const initialState = {
+  firstName: "",
+  lastName: "",
+  dateOfBirth: "",
+  street: "",
+  city: "",
+  zipCode: "",
+  stateAbbrev: "",
+  startDate: "",
+  department: "",
+};
 
 /**
  * Form
  * @returns {Reactnode}  jsx injected in DOM
  */
 export default function Form() {
-
-  const initialState = {
-      firstName: "",
-      lastName: "",
-      dateOfBirth: "",
-      street: "",
-      city: "",
-      zipCode: "",
-      stateAbbrev: "",
-      startDate: "",
-      department: "",
-  };
 
   const [newEmployee, setNewEmployee] = useState(initialState);
 
@@ -73,12 +72,12 @@ export default function Form() {
       marginRight: "-50%",
       border: "none",
       transform: "translate(-50%, -50%)",
-      boxShadow: "0 0 0 1.5px $dark",
+      boxShadow: "0 0 0 1.5px #010a0c",
   }};  
       
   // ON CHANGE
   const handleChange = (e) => {
-    setNewEmployee({ ...newEmployee, [e.target.id]: e.target.value.trim() });
+    setNewEmployee(prev => ({ ...prev, [e.target.id]: e.target.value.trim() }));
   };
 
   // GET DATA
@@ -89,20 +88,19 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // update data
-    employeesList = employeesList || [];
-    employeesList.push(newEmployee);
-
     // complete / correct data
     newEmployee.id = employeesList.length;
     newEmployee.dateOfBirth = newEmployee.dateOfBirth.replace(/-/g, "/");
     newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
 
+    // update data
+    employeesList.push(newEmployee);
+
     // store data
     window.localStorage.setItem("employeesList", JSON.stringify(employeesList));
 
     // reset form
-    setNewEmployee({ ...newEmployee }, e.target.reset());
+    setNewEmployee(initialState);
 
     openModal();
   };

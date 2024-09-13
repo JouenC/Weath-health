@@ -1,5 +1,5 @@
-// import { useEffect } from "react";
-// import { getTags, getNestedTags, setAttributes } from "../utils/Handler";
+import { useEffect } from "react";
+import { getTags, getNestedTags, setAttributes } from "../utils/Handler";
 import Table from "../components/Table";
 
 
@@ -8,26 +8,26 @@ import Table from "../components/Table";
  * @returns {Reactnode}  jsx injected in DOM
  */
  export default function Employees()  {
-    // useEffect(() => {
+    useEffect(() => {
     
-    //     // ACCESSIBILITY
-    //     // HANDLING ROWS GROUP BY SETTING ATTRIBUTE
-    //     getTags("tbody").map((item) => item.removeAttribute("role"));
+        // ACCESSIBILITY
+        // HANDLING ROWS GROUP BY SETTING ATTRIBUTE
+        getTags("tbody").map((item) => item.removeAttribute("role"));
     
-    //     // HANDLING HEADERS SCOPE BY SETTING ATTRIBUTE
-    //     // headers level 1
-    //     getNestedTags("tr", 0, "th").map((item) =>
-    //       setAttributes(item, {
-    //         scope: "colgroup",
-    //       })
-    //     );
-    //     // headers level 2
-    //     getNestedTags("tr", 1, "th").map((item) =>
-    //       setAttributes(item, {
-    //         scope: "col",
-    //       })
-    //     );
-    //   });
+        // HANDLING HEADERS SCOPE BY SETTING ATTRIBUTE
+        // headers level 1
+        getNestedTags("tr", 0, "th").map((item) =>
+          setAttributes(item, {
+            scope: "colgroup",
+          })
+        );
+        // headers level 2
+        getNestedTags("tr", 1, "th").map((item) =>
+          setAttributes(item, {
+            scope: "col",
+          })
+        );
+    });
 
     return (
         <main aria-labelledby="page-title" className="table">

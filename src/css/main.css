@@ -16,7 +16,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #9aa674 !important;
+  background-color: #99bb2a !important;
 }
 
 /* TITLES */
@@ -28,15 +28,15 @@ h3 {
 }
 
 h1 {
-  color: #9aa674;
+  color: #99bb2a;
 }
 h1 :focus {
   outline: none;
-  box-shadow: 0 0 0 1.5px #9aa674;
+  box-shadow: 0 0 0 1.5px #99bb2a;
 }
 
 h2 {
-  color: #7e7a6a;
+  color: #067c5c;
   border-radius: 0.25rem;
 }
 
@@ -44,7 +44,7 @@ h3 {
   margin-top: 0;
   margin-bottom: 0;
   border-radius: 0.25rem;
-  color: #483e37;
+  color: #010a0c;
 }
 
 a {
@@ -63,7 +63,7 @@ select {
 h2:focus,
 div:focus {
   outline: none;
-  box-shadow: 0 0 0 1.5px #7e7a6a;
+  box-shadow: 0 0 0 1.5px #067c5c;
 }
 
 h3:focus,
@@ -72,22 +72,22 @@ select:focus,
 button:focus,
 td:focus {
   outline: none;
-  box-shadow: 0 0 0 1.5px #bec7a3;
+  box-shadow: 0 0 0 1.5px #067c21;
   border-radius: 0.25rem;
 }
 
 span:focus {
   outline: none;
-  box-shadow: 0 0 0 1.5px #7e7a6a;
+  box-shadow: 0 0 0 1.5px #067c5c;
 }
 
 th:focus {
-  outline: 3px solid #483e37;
+  outline: 3px solid #010a0c;
   border-radius: 0.25rem;
 }
 
 #page-title {
-  color: #483e37;
+  color: #010a0c;
   width: fit-content;
   margin: 2rem auto;
   padding: 0.5rem;
@@ -147,11 +147,11 @@ nav {
   align-items: center;
   padding: 0 1rem;
   font-weight: 600;
-  color: #483e37;
+  color: #010a0c;
 }
 .nav-menu__choice :hover, .nav-menu__choice :focus {
-  background: #7e7a6a;
-  color: #483e37;
+  background: #067c5c;
+  color: #010a0c;
   outline: none;
 }
 
@@ -170,7 +170,7 @@ nav {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
-  background-color: #9db062;
+  background-color: #41bd14;
 }
 
 @media screen and (max-width: 768px) {
@@ -246,7 +246,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 .form-newEmployee--inputWrapper label {
   font-weight: 700;
-  color: #7e7a6a;
+  color: #067c5c;
 }
 
 .form-newEmployee--inputWrapper input,
@@ -254,7 +254,7 @@ select {
   padding: 5px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #9db062;
+  border-bottom: 2px solid #41bd14;
   border-radius: 0.25rem 0.25rem 0 0;
   color: grey;
   font-size: 1rem;
@@ -271,12 +271,12 @@ select {
 
 .form-newEmployee--inputWrapper select:focus {
   outline: none;
-  background-color: #9aa674;
+  background-color: #99bb2a;
   color: #fff;
 }
 
 .form-newEmployee--inputWrapper select:focus option:checked {
-  background: #7e7a6a !important;
+  background: #067c5c !important;
 }
 
 /* ADDRESS GROUP */
@@ -314,7 +314,7 @@ select {
   font-weight: bold;
   border: none;
   border-radius: 0.5rem;
-  background-color: #9db062;
+  background-color: #41bd14;
   color: light;
   cursor: pointer;
 }
@@ -324,7 +324,7 @@ select {
 .form-newEmployee--submit:disabled:hover,
 .form-newEmployee--submit[disabled]:hover {
   background-color: #ccde8c;
-  color: var #9db062;
+  color: var #41bd14;
   cursor: not-allowed;
 }
 
@@ -384,8 +384,8 @@ select {
   margin: 0.25rem;
   padding: 0.25rem;
   border-radius: 0.25rem;
-  border: 1px solid #7e7a6a;
-  color: #7e7a6a;
+  border: 1px solid #067c5c;
+  color: #067c5c;
   font-size: small;
 }
 
@@ -404,7 +404,7 @@ select {
 .table-header--search input {
   margin-left: 0.5rem;
   padding: 0.25rem;
-  border: 1px solid #7e7a6a;
+  border: 1px solid #067c5c;
   border-radius: 0.25rem;
 }
 
@@ -419,7 +419,7 @@ select {
 .table-main--list {
   table-layout: auto;
   width: 100%;
-  border-color: #483e37;
+  border-color: #010a0c;
 }
 
 .table-main--list thead :first-child :first-child {
@@ -440,7 +440,7 @@ select {
 
 .table-main--list th {
   padding: 0.25rem;
-  background-color: #7e7a6a;
+  background-color: #067c5c;
   color: #fff;
 }
 
@@ -463,7 +463,7 @@ select {
 .table-main--arrowDown {
   padding: 0;
   background-color: transparent;
-  color: #483e37;
+  color: #010a0c;
   width: 1rem;
   height: 1rem;
 }
@@ -493,7 +493,7 @@ select {
 
 .table-main--list tr:hover,
 .table-main--list tr:focus {
-  background-color: #9db062;
+  background-color: #41bd14;
 }
 
 /* Id input */
@@ -526,22 +526,22 @@ select {
 .table-footer--pageIndex {
   padding: 0.25rem;
   border-radius: 0.25rem;
-  color: #483e37;
+  color: #010a0c;
 }
 
 .table-nav--btn {
   cursor: pointer;
   margin: 0.25rem;
   padding: 0.25rem 0.5rem;
-  background-color: #9db062;
+  background-color: #41bd14;
   border-radius: 0.25rem;
-  border: 1px solid #7e7a6a;
-  color: #483e37;
+  border: 1px solid #067c5c;
+  color: #010a0c;
   line-height: 1.25rem;
 }
 
 .table-nav--btn:hover {
-  background-color: #bec7a3;
+  background-color: #067c21;
 }
 
 .table-nav--btn:disabled {
@@ -593,7 +593,7 @@ select {
     background-color: transparent;
   }
   .table-main::-webkit-scrollbar-thumb {
-    background-color: #9db062 !important;
+    background-color: #41bd14 !important;
   }
   .table-footer {
     width: 90%;
