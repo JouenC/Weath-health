@@ -86,7 +86,7 @@ export default function Table() {
                   aria-label="not sorted"
                   className="table-main--bullet"
                 >
-                  •
+                  -
                 </button>
               )}
             </span>

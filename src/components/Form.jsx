@@ -7,6 +7,7 @@ import close from "../assets/close.png";
 import Input from "../components/Input";
 import Dropdown from "../components/Dropdown";
 import Modal from "react-modal";
+// import Component from "./Component";
 
 const initialState = {
   firstName: "",
@@ -40,7 +41,7 @@ export default function Form() {
         htmlFor={item.id}
         label={item.label}
         id={item.id}
-        value={item.value}
+        value={newEmployee[item.id]}
         select={item.select}
         handleChange={handleChange}
         autoComplete="off"
@@ -48,8 +49,15 @@ export default function Form() {
     ));
 
   // For filter
-  const isAddressClass = (data) => data.className.includes("address");
-  const isNotAddressClass = (data) => !data.className.includes("address");
+  const filterByClassName = (data, isAddress) => isAddress ? data.className.includes("address") : !data.className.includes("address");
+
+  // Factorized rendering function
+  const renderFilteredComponents = (isAddress) => (
+    <>
+      {renderComponents(INPUT_DATA, Input, (item) => filterByClassName(item, isAddress))}
+      {renderComponents(DROPDOWN_DATA, Dropdown, (item) => filterByClassName(item, isAddress))}
+    </>
+  );
 
   // MODAL
   function openModal() {
@@ -111,14 +119,12 @@ export default function Form() {
       <img className="form-newEmployee--ico" src={icoAdd} alt="add employee icon"/>
 
       {/* Inputs and Dropdowns without the 'address' class */}
-      {renderComponents(INPUT_DATA, Input, isNotAddressClass)}
-      {renderComponents(DROPDOWN_DATA, Dropdown, isNotAddressClass)}
+      {renderFilteredComponents(false)}
 
       {/* Address fieldset */}
       <fieldset id="addressContainer" className="form-newEmployee--addressContainer">
         <legend className="form-newEmployee--addressGroup">Address</legend>
-        {renderComponents(INPUT_DATA, Input, isAddressClass)}
-        {renderComponents(DROPDOWN_DATA, Dropdown, isAddressClass)}
+        {renderFilteredComponents(true)}
       </fieldset>
       
       <button type="submit" className="submit form-newEmployee--submit"> Save </button>
