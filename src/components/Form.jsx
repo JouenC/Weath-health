@@ -68,21 +68,6 @@ export default function Form() {
     setIsOpen(false);
   }
 
-  const customStyles = {
-  content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      width: "400px",
-      height: "300px",
-      background: "#f2f2f2",
-      marginRight: "-50%",
-      border: "none",
-      transform: "translate(-50%, -50%)",
-      boxShadow: "0 0 0 1.5px #010a0c",
-  }};  
-      
   // ON CHANGE
   const handleChange = (e) => {
     setNewEmployee(prev => ({ ...prev, [e.target.id]: e.target.value.trim() }));
@@ -132,7 +117,7 @@ export default function Form() {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="modal-content"
         ariaHideApp={false}
         shouldCloseOnOverlayClick={true}
         shouldCloseOnEsc={true}

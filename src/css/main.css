@@ -329,6 +329,20 @@ select {
 }
 
 /* MODAL */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: 400px;
+  height: 300px;
+  background: #f2f2f2;
+  border: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1.5px #010a0c;
+}
+
 .modal-close {
   width: 35px;
   margin-left: 360px;
@@ -447,7 +461,6 @@ select {
 .table-main--list thead :nth-child(2) > * {
   padding-bottom: 0.5rem;
   font-family: "Open Sans Condensed";
-  color: black;
 }
 
 .table-main--list thead :nth-child(1) .table-main--sorter {
