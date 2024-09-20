@@ -4,8 +4,9 @@ import DROPDOWN_DATA from "../datas/dropdownData.json";
 import EMPLOYEES_LIST from "../datas/employeesData.json";
 import icoAdd from "../assets/ico-user-add.jpg";
 import close from "../assets/close.png";
-import Input from "../components/Input";
-import Dropdown from "../components/Dropdown";
+import Input from "./Input";
+// import Dropdown from "react-dropdown-component-cj";
+import Dropdown from "./Dropdown";
 import Modal from "react-modal";
 // import Component from "./Component";
 
@@ -54,8 +55,8 @@ export default function Form() {
   // Factorized rendering function
   const renderFilteredComponents = (isAddress) => (
     <>
-      {renderComponents(INPUT_DATA, Input, (item) => filterByClassName(item, isAddress))}
-      {renderComponents(DROPDOWN_DATA, Dropdown, (item) => filterByClassName(item, isAddress))}
+      {renderComponents(INPUT_DATA, Input, (data) => filterByClassName(data, isAddress))}
+      {renderComponents(DROPDOWN_DATA, Dropdown, (data) => filterByClassName(data, isAddress))}
     </>
   );
 

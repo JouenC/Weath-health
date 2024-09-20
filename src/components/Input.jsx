@@ -22,7 +22,7 @@ value,
 handleChange,
 }) {
     return (
-        <div className={`form-newEmployee--inputWrapper ${className}`}>
+        <div className={`form-inputWrapper ${className}`}>
         <label htmlFor={id}>{label}</label>
         <input
           type={type}

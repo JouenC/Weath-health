@@ -34,7 +34,7 @@ export default function Dropdown({
     ));
 
   return (
-    <div className={`form--inputWrapper ${className}`}>
+    <div className={`form-inputWrapper ${className}`}>
       <label htmlFor={id}>{label}</label>
       <select
         className="dropdownList"

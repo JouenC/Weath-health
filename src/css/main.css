@@ -205,7 +205,7 @@ nav {
   margin: 0 auto 2.5rem;
 }
 
-.form-newEmployee--inputWrapper {
+.form-inputWrapper {
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -244,12 +244,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
   filter: invert(0.4);
 }
 
-.form-newEmployee--inputWrapper label {
+.form-inputWrapper label {
   font-weight: 700;
   color: #067c5c;
 }
 
-.form-newEmployee--inputWrapper input,
+.form-inputWrapper input,
 select {
   padding: 5px;
   border: none;
@@ -261,21 +261,21 @@ select {
   font-weight: 100;
 }
 
-.form-newEmployee--inputWrapper select::-webkit-scrollbar {
+.form-inputWrapper select::-webkit-scrollbar {
   width: 5px;
 }
 
-.form-newEmployee--inputWrapper select::-webkit-scrollbar-thumb {
+.form-inputWrapper select::-webkit-scrollbar-thumb {
   background: #fff;
 }
 
-.form-newEmployee--inputWrapper select:focus {
+.form-inputWrapper select:focus {
   outline: none;
   background-color: #99bb2a;
   color: #fff;
 }
 
-.form-newEmployee--inputWrapper select:focus option:checked {
+.form-inputWrapper select:focus option:checked {
   background: #067c5c !important;
 }
 
@@ -372,7 +372,7 @@ select {
   .form-newEmployee--addressContainer select {
     font-size: small;
   }
-  .form-newEmployee--inputWrapper select option,
+  .form-inputWrapper select option,
   .form-newEmployee--addressContainer option {
     font-size: x-small;
   }
