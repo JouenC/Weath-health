@@ -5,10 +5,8 @@ import EMPLOYEES_LIST from "../datas/employeesData.json";
 import icoAdd from "../assets/ico-user-add.jpg";
 import close from "../assets/close.png";
 import Input from "./Input";
-// import Dropdown from "react-dropdown-component-cj";
-import Dropdown from "./Dropdown";
+import Dropdown from "react-dropdown-component-cj";
 import Modal from "react-modal";
-// import Component from "./Component";
 
 const initialState = {
   firstName: "",
@@ -49,16 +47,13 @@ export default function Form() {
       />
     ));
 
-  // For filter
-  const filterByClassName = (data, isAddress) => isAddress ? data.className.includes("address") : !data.className.includes("address");
-
-  // Factorized rendering function
-  const renderFilteredComponents = (isAddress) => (
-    <>
-      {renderComponents(INPUT_DATA, Input, (data) => filterByClassName(data, isAddress))}
-      {renderComponents(DROPDOWN_DATA, Dropdown, (data) => filterByClassName(data, isAddress))}
-    </>
-  );
+    // Rendering function for in or out fieldset
+const renderFilteredComponents = (isAddress) => (
+  <>
+    {renderComponents(INPUT_DATA, Input, (data) => isAddress ? data.className.includes("address") : !data.className.includes("address"))}
+    {renderComponents(DROPDOWN_DATA, Dropdown, (data) => isAddress ? data.className.includes("address") : !data.className.includes("address"))}
+  </>
+);
 
   // MODAL
   function openModal() {

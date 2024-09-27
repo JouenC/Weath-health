@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { getElement, setAttributes } from "../utils/Handler";
 import Form from "../components/Form"
 
-
 /**
  * Home
  * @returns {Reactnode}  jsx injected in DOM
