@@ -78,7 +78,7 @@ const renderFilteredComponents = (isAddress) => (
     e.preventDefault();
 
     // complete / correct data
-    newEmployee.id = employeesList.length;
+    newEmployee.id = employeesList.length +1;
     newEmployee.dateOfBirth = newEmployee.dateOfBirth.replace(/-/g, "/");
     newEmployee.startDate = newEmployee.startDate.replace(/-/g, "/");
 
